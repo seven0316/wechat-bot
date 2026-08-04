@@ -2,8 +2,11 @@ name: 发送图片到企业微信
 
 on:
   workflow_dispatch:
+  push:                    # 新增：任何push都会触发
+    branches:
+      - main              # 改为你的默认分支名
   schedule:
-    - cron: '* * * * *'   # 临时改为每分钟执行一次
+    - cron: '* * * * *'
 
 jobs:
   send:
