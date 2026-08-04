@@ -1,10 +1,8 @@
 name: 发送图片到企业微信
-
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/56 * * * *'
-
+    - cron: '0 * * * *'   # 每小时整点触发一次（UTC 时间）
 jobs:
   send:
     runs-on: ubuntu-latest
