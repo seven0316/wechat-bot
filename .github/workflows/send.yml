@@ -1,11 +1,9 @@
 name: 发送图片到企业微信
 
 on:
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:
   schedule:
-    # UTC 16:20 = 北京时间次日 00:20
-    # 格式：分钟 小时 日 月 星期
-    - cron: '20 16 * * *'  # 注意这里是 16 而不是 0
+    - cron: '* * * * *'   # 临时改为每分钟执行一次
 
 jobs:
   send:
