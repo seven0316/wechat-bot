@@ -2,7 +2,7 @@ name: 发送图片到企业微信
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'   # 每小时整点触发一次（UTC 时间）
+    - cron: '0 0 * * *'   # 每天 UTC 0点触发，即北京时间早上8点
 jobs:
   send:
     runs-on: ubuntu-latest
