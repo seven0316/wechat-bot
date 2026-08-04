@@ -1,25 +1,25 @@
 name: 发送图片到企业微信
 
 on:
-  workflow_dispatch:  # 手动触发按钮
+  workflow_dispatch:  # 允许手动触发
   schedule:
-    - cron: '3 16 * * *'  # 北京时间凌晨0:03（UTC 16:03）
+    - cron: '11 0 * * *'  # 配合下方时区设置，即为北京时间
 
 jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      - name: 下载代码
-        uses: actions/checkout@v4
-      
-      - name: 安装Python
-        uses: actions/setup-python@v5
+      # 关键步骤：将运行环境设置为北京时间
+      - name: 设置时区为北京时间
+        run: |
+          sudo timedatectl set-timezone 'Asia/Shanghai'
+          date  # 打印当前时间，可在日志中验证
+
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
-      - name: 安装依赖
-        run: pip install requests
-      
+      - run: pip install requests
       - name: 发送图片
         env:
           WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
