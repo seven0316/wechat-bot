@@ -3,7 +3,7 @@ name: 发送图片到企业微信
 on:
   workflow_dispatch:
   schedule:
-    - cron: '* * * * *'   # 每分钟一次，用于测试定时任务是否生效
+    - cron: '*/5 * * * *'
 
 jobs:
   send:
