@@ -3,18 +3,14 @@ name: 发送图片到企业微信
 on:
   workflow_dispatch:  # 允许手动触发
   schedule:
-    - cron: '11 0 * * *'  # 配合下方时区设置，即为北京时间
+    # UTC 16:20 = 北京时间次日 00:20
+    # 格式：分钟 小时 日 月 星期
+    - cron: '20 16 * * *'  # 注意这里是 16 而不是 0
 
 jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      # 关键步骤：将运行环境设置为北京时间
-      - name: 设置时区为北京时间
-        run: |
-          sudo timedatectl set-timezone 'Asia/Shanghai'
-          date  # 打印当前时间，可在日志中验证
-
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
