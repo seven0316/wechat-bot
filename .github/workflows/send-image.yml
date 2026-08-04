@@ -3,7 +3,7 @@ name: 发送图片到企业微信
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/56 * * * *'
 
 jobs:
   send:
