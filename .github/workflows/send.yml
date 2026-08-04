@@ -2,6 +2,8 @@ name: 发送图片到企业微信
 
 on:
   workflow_dispatch:  # 手动触发按钮
+  schedule:
+    - cron: '3 16 * * *'  # 北京时间凌晨0:03（UTC 16:03）
 
 jobs:
   send:
