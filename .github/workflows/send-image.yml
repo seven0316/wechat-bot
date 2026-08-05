@@ -18,11 +18,6 @@ jobs:
       - name: 安装依赖
         run: pip install requests
       
-      - name: 查看文件夹内容
-        run: |
-          echo "=== images 文件夹内容 ==="
-          ls -la images/
-      
       - name: 发送图片
         env:
           WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
