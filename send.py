@@ -60,7 +60,7 @@ weekday_name = weekday_names[beijing_time.weekday()]
 requests.post(webhook_url, json={
     "msgtype": "text",
     "text": {
-        "content": f"🤖 自动推送测试\n时间：{time_str} (北京时间)\n{weekday_name} 工作日推送"
+        "content": f"🤖 自动推送\n时间：{time_str}\n{weekday_name} 日报提醒"
     }
 })
 
