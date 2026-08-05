@@ -51,7 +51,7 @@ print(f"图片发送响应: {resp1.status_code}")
 # 发文字
 resp2 = requests.post(webhook_url, json={
     "msgtype": "text",
-    "text": {"content": "日报日报~随机福利 🎉"}
+    "text": {"content": "日报日报~随机福利"}
 })
 print(f"文字发送响应: {resp2.status_code}")
 
